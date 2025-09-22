@@ -5,12 +5,12 @@ import { Label, Select } from "flowbite-react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import SelectBaseMaps from "./SelectBasemaps";
-import SelectLayes from "./SelectLayers";
+import SelectLayers from "./SelectLayers";
 import SelectTools from "./SelectTools";
 
 import SidebarImg from "../assets/images/sidebar.png"
 
-export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapUrl }){
+export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapUrl, setToggles, toggles }){
     return(
         <aside id="default-sidebar" className={`fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
             } `} aria-label="Sidebar">
@@ -39,7 +39,7 @@ export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapU
                         <SelectBaseMaps value={basemapUrl} onChange={setBasemapUrl} />
                     </li>
                     <li>
-                        <SelectLayes/>
+                        <SelectLayers toggles={toggles} setToggles={setToggles} />
                     </li>
                     <li>
                         <SelectTools/>

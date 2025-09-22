@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import SidebarPage from "../components/Sidebar";
 import Footer from "../components/Footer";
 
-export default function LayoutPages({ children, basemapUrl, setBasemapUrl }){
+export default function LayoutPages({ children, basemapUrl, setBasemapUrl, toggles, setToggles }){
     const [isOpen, setIsOpen] = useState(false);
 
     return(
@@ -19,6 +19,8 @@ export default function LayoutPages({ children, basemapUrl, setBasemapUrl }){
                     setIsOpen={setIsOpen}
                     basemapUrl={basemapUrl}
                     setBasemapUrl={setBasemapUrl}
+                    toggles={toggles} 
+                    setToggles={setToggles}
                 />
 
                 <div className={`transition-all duration-300 ${isOpen ? "sm:ml-64" : "ml-0"}`}>

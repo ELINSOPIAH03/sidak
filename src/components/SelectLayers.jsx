@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 
-export default function SelectLayers() {
+export default function SelectLayers({ toggles, setToggles }) {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [toggles, setToggles] = useState([
-        { id: 1, name: "Batas Kelurahan", isOn: false },
-        { id: 2, name: "Kebakaran 5th", isOn: false },
-        { id: 3, name: "Jalan Roda4", isOn: false },
-        { id: 4, name: "Kantor Damkar", isOn: false },
-        { id: 5, name: "RS", isOn: false },
-        { id: 6, name: "Puskesmas", isOn: false },
-    ]);
-
     const handleToggle = (id) => {
-        setToggles((prev) =>
-            prev.map((t) => (t.id === id ? { ...t, isOn: !t.isOn } : t))
+        const newToggles = toggles.map((t) =>
+            t.id === id ? { ...t, isOn: !t.isOn } : t
         );
+        setToggles(newToggles);
     };
 
     return (
@@ -58,7 +50,7 @@ export default function SelectLayers() {
 
             {/* Toggle Area */}
             {isOpen && (
-                <ul className="pl-8 py-2 space-y-2">
+                <ul className="pl-8 py-1 space-y-3">
                     {toggles.map((t) => (
                         <li key={t.id}>
                             <div className="flex items-center space-x-3">
@@ -72,7 +64,7 @@ export default function SelectLayers() {
                                             }`}
                                     />
                                 </button>
-                                <span className="text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <span className="text-sm text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                     {t.name}
                                 </span>
                             </div>

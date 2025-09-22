@@ -1,0 +1,34 @@
+import React, { useState } from "react";
+import { Sidebar, Button } from "flowbite-react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
+import Navbar from "../components/Navbar";
+import SidebarPage from "../components/Sidebar";
+import Footer from "../components/Footer";
+
+export default function LayoutPages({ children, basemapUrl, setBasemapUrl }){
+    const [isOpen, setIsOpen] = useState(false);
+
+    return(
+        <>
+            <div className="w-full">
+                <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+                <SidebarPage
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    basemapUrl={basemapUrl}
+                    setBasemapUrl={setBasemapUrl}
+                />
+
+                <div className={`transition-all duration-300 ${isOpen ? "sm:ml-64" : "ml-0"}`}>
+                    <div className="">
+                        {children}
+                    </div>
+                </div>
+
+                <Footer />
+            </div>
+        </>
+    );
+}

@@ -46,7 +46,7 @@ export default function Index({ basemapUrl, setBasemapUrl }){
         <LayoutPages basemapUrl={basemapUrl} setBasemapUrl={setBasemapUrl}>
             <div
                 ref={mapRef}
-                className="w-full h-screen"
+                className="w-full h-[85vh]"
             />
         </LayoutPages>
     );

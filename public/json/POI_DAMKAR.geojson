@@ -1,0 +1,301 @@
+{
+    "type": "FeatureCollection",
+    "name": "POI_DAMKAR",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "1",
+                "name": "Dinas Pemadam Kebakaran Kab. Bogor",
+                "alamat": "Komplek, Jl. Raya Pemda Jl. Tegar Beriman No.1, Pakansari, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16914",
+                "lat": -6.4848249340860704,
+                "long": 106.836768084269
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.836768084268996,
+                    -6.48482493408607
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "2",
+                "name": "Posko Pemadam Kebakaran Kab. Bogor Sektor Barat",
+                "alamat": "Jl. Raya Leuwiliang No.47, Leuwiliang, Kec. Leuwiliang, Kabupaten Bogor, Jawa Barat 16640",
+                "lat": -6.5588236959849704,
+                "long": 106.624788962452
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.624788962452001,
+                    -6.55882369598497
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "3",
+                "name": "Pos Pemadam Kebakaran Ciawi Sektor Selatan",
+                "alamat": "Jl. Raya Puncak Gadog, Bendungan, Kec. Ciawi, Kabupaten Bogor, Jawa Barat 16720",
+                "lat": -6.6464397479468902,
+                "long": 106.855114536006
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.855114536005999,
+                    -6.64643974794689
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "4",
+                "name": "Dinas Pemadam Kebakaran Daerah Ciomas",
+                "alamat": "Jl. Raya Ciomas No.313, Ciomas, Kec. Ciomas, Kabupaten Bogor, Jawa Barat 16610",
+                "lat": -6.5884637270817201,
+                "long": 106.768597202168
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.768597202167996,
+                    -6.58846372708172
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "5",
+                "name": "Dinas pemadam kebakaran kota bogor",
+                "alamat": "Jl. Raya Pajajaran No.01 raya, RT.07/RW.02, Sukasari, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16142",
+                "lat": -6.6102907922762997,
+                "long": 106.81803567864701
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.818035678647007,
+                    -6.6102907922763
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "6",
+                "name": "Dinas Pemadam Kebakaran Sektor Parung",
+                "alamat": "Jl. Raya Gn. Sindur Parung, Waru, Kec. Parung, Kabupaten Bogor, Jawa Barat 16330",
+                "lat": -6.4048071346853899,
+                "long": 106.729044571953
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.729044571952997,
+                    -6.40480713468539
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "7",
+                "name": "Pos pemadam kebakaran Argha Karya",
+                "alamat": "Jl. Pahlawan, Karang Asem Tim., Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810",
+                "lat": -6.4805434353996798,
+                "long": 106.87530006487
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.875300064870004,
+                    -6.48054343539968
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "8",
+                "name": "Dinas Pemadam Kebakaran Sektor Ciomas",
+                "alamat": "Ciomas, Kec. Ciomas, Kabupaten Bogor, Jawa Barat 16610",
+                "lat": -6.5862822798346299,
+                "long": 106.772303238872
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.772303238871999,
+                    -6.58628227983463
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "9",
+                "name": "DINAS PEMADAM KEBAKARAN KOTA BOGOR POSKO DAMKAR YASMIN KOTA BOGOR",
+                "alamat": "Jl. KH. R. Abdullah Bin Nuh No.1, RT.03/RW.01, Curugmekar, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16113",
+                "lat": -6.5487646048042798,
+                "long": 106.76200355627201
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.762003556272006,
+                    -6.54876460480428
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "10",
+                "name": "Dinas Pemadam Kebakaran Sektor Cileungsi",
+                "alamat": "Cipenjo, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820",
+                "lat": -6.3803786004160603,
+                "long": 106.97678969948601
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.976789699486005,
+                    -6.38037860041606
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "11",
+                "name": "Dinas Pemadam Kebakaran Sektor Gunung Putri",
+                "alamat": "Gg. Cilalawang, Ciangsana, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16968",
+                "lat": -6.3435280863542198,
+                "long": 106.96099685283301
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.960996852833006,
+                    -6.34352808635422
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "12",
+                "name": "Dinas pemadam kebakaran dan penyelamatan kota Bogor",
+                "alamat": "RT.04/RW.01, Ciluar, Kec. Bogor Utara, Kota Bogor, Jawa Barat",
+                "lat": -6.5384351609794198,
+                "long": 106.82052841344699
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.820528413446993,
+                    -6.53843516097942
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "13",
+                "name": "DAMKAR SEKTOR CITEUREUP",
+                "alamat": "Karang Asem Bar., Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810",
+                "lat": -6.4811288214071103,
+                "long": 106.872026826446
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.872026826446003,
+                    -6.48112882140711
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "14",
+                "name": "Dinas Pemadam Kebakaran Kabupaten Bogor ",
+                "alamat": "Jl. Prada Abdullah, Pakansari, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16915",
+                "lat": -6.4544651679927103,
+                "long": 106.83415022707899
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.834150227078993,
+                    -6.45446516799271
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "15",
+                "name": "Damkar cariu",
+                "alamat": "Jln pasar, Cariu, Kec. Cariu, Kabupaten Bogor, Jawa Barat 16840",
+                "lat": -6.4762980791759599,
+                "long": 107.128034503927
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    107.128034503926997,
+                    -6.47629807917596
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "16",
+                "name": "Dinas pemadam kebakaran dan penyelamatan kota Bogor",
+                "alamat": "Ciluar, Kec. Bogor Utara, Kota Bogor, Jawa Barat",
+                "lat": -6.5277211148249004,
+                "long": 106.82405467130999
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.824054671309995,
+                    -6.5277211148249
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "no": "17",
+                "name": "Gedung Damkar Dan PBA Sektor Cibuluh",
+                "alamat": "Jalan Raya Ciluar Simpang Pomad Ciluar, RT.04/RW.01, Cibuluh, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16154",
+                "lat": -6.5400004552707403,
+                "long": 106.821994734832
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.821994734832003,
+                    -6.54000045527074
+                ]
+            }
+        }
+    ]
+}

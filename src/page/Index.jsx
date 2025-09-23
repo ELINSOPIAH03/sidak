@@ -10,6 +10,7 @@ import { fromLonLat } from "ol/proj";
 import LayoutPages from "../layout/LayoutPages";
 import GenerateLayers from "../fitur/GanerateLayers";
 import GenerateScoreLayer from "../fitur/GenerateScoreLayer";
+import GeneratePoiLayer from "../fitur/GeneratePoiLayer";
 
 import Popup from "../components/Popup";
 
@@ -22,7 +23,7 @@ export default function Index({ basemapUrl, setBasemapUrl }) {
         { id: 2, name: "Administrasi Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "normal" },
         { id: 3, name: "Sekor Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "score" },
         { id: 4, name: "Sekor Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "score" },
-        { id: 5, name: "Kantor Damkar", isOn: false, url: "", type: "normal" },
+        { id: 5, name: "Kantor Damkar", isOn: false, url: "/json/POI_DAMKAR.geojson", type: "poi" },
         { id: 6, name: "Rumah Sakit", isOn: false, url: "", type: "normal" },
         { id: 7, name: "Puskesmas", isOn: false, url: "", type: "normal" },
     ]);
@@ -114,6 +115,29 @@ export default function Index({ basemapUrl, setBasemapUrl }) {
                                 }
                             }}
                         />;
+                }
+
+                if (t.type === "poi") {
+                    return (
+                        <GeneratePoiLayer
+                            key={t.id}
+                            map={map}
+                            url={t.url}
+                            toggle={t.isOn}
+                            onFeatureClick={(props, coord) => {
+                                if (props) {
+                                    const content = Object.entries(props).map(([key, value]) => (
+                                        <p key={key}>
+                                            <strong>{key}:</strong> {value.toString()}
+                                        </p>
+                                    ));
+                                    setPopupData({ content, position: coord, visible: true });
+                                } else {
+                                    setPopupData({ content: null, position: [0, 0], visible: false });
+                                }
+                            }}
+                        />
+                    );
                 }
 
                 return <GenerateLayers 

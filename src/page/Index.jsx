@@ -11,7 +11,9 @@ import LayoutPages from "../layout/LayoutPages";
 import GenerateLayers from "../fitur/GanerateLayers";
 import GenerateScoreLayer from "../fitur/GenerateScoreLayer";
 
-export default function Index({ basemapUrl, setBasemapUrl }){
+import Popup from "../components/Popup";
+
+export default function Index({ basemapUrl, setBasemapUrl }) {
     const mapRef = useRef();
     const [map, setMap] = useState(null);
 
@@ -24,6 +26,12 @@ export default function Index({ basemapUrl, setBasemapUrl }){
         { id: 6, name: "Rumah Sakit", isOn: false, url: "", type: "normal" },
         { id: 7, name: "Puskesmas", isOn: false, url: "", type: "normal" },
     ]);
+    
+    const [popupData, setPopupData] = useState({
+        content: null,
+        position: [0, 0],
+        visible: false,
+    });
 
     useEffect(() => {
         const initialMap = new Map({
@@ -53,25 +61,90 @@ export default function Index({ basemapUrl, setBasemapUrl }){
             })
         );
     }, [basemapUrl, map]);
-    return(
-        <LayoutPages 
+
+    return (
+        <LayoutPages
             basemapUrl={basemapUrl}
             setBasemapUrl={setBasemapUrl}
             toggles={toggles}
             setToggles={setToggles}>
             <div
                 ref={mapRef}
-                className="w-full h-[85vh]"
+                className="w-full h-[85vh] relative"
+            >
+
+            <Popup
+                content={popupData.content}
+                position={popupData.position}
+                visible={popupData.visible}
             />
-            
+
+            </div>
+
             {toggles.map((t) => {
                 if (!t.isOn || !t.url) return null;
 
                 if (t.type === "score") {
-                    return <GenerateScoreLayer key={t.id} map={map} url={t.url} toggle={t.isOn} />;
+                    return <GenerateScoreLayer
+                            key={t.id}
+                            map={map}
+                            url={t.url}
+                            toggle={t.isOn}
+                            onFeatureClick={(props, coord) => {
+                                if (props) {
+                                    const content = Object.entries(props)
+                                        .map(([key, value]) => (
+                                            <p key={key}>
+                                                <strong>{key}:</strong> {value.toString()}
+                                            </p>
+                                        ));
+
+                                    setPopupData({
+                                        content,
+                                        position: coord,
+                                        visible: true,
+                                    });
+                                } else {
+                                    // klik di luar shape
+                                    setPopupData({
+                                        content: null,
+                                        position: [0, 0],
+                                        visible: false,
+                                    });
+                                }
+                            }}
+                        />;
                 }
 
-                return <GenerateLayers key={t.id} map={map} url={t.url} toggle={t.isOn} />;
+                return <GenerateLayers 
+                        key={t.id} 
+                        map={map} 
+                        url={t.url} 
+                        toggle={t.isOn} 
+                        onFeatureClick={(props, coord) => {
+                            if (props) {
+                                const content = Object.entries(props)
+                                    .map(([key, value]) => (
+                                        <p key={key}>
+                                            <strong>{key}:</strong> {value.toString()}
+                                        </p>
+                                    ));
+
+                                setPopupData({
+                                    content,
+                                    position: coord,
+                                    visible: true,
+                                });
+                            } else {
+                                // klik di luar shape
+                                setPopupData({
+                                    content: null,
+                                    position: [0, 0],
+                                    visible: false,
+                                });
+                            }
+                        }}
+                    />;
             })}
 
         </LayoutPages>

@@ -43,6 +43,7 @@ export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick })
                     }) : null,
                 });
             },
+            zIndex: 2,
         });
 
         map.addLayer(vectorLayer);

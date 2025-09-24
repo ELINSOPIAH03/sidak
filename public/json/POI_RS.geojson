@@ -1,0 +1,582 @@
+{
+    "type": "FeatureCollection",
+    "name": "POI_RS",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 1,
+                "Nama": "RSUD Bakti Pajajaran (sebelumnya RSUD Cibinong)",
+                "Alamat": "Jl. KSR Dadi Kusmayadi No.27, Tengah, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16914",
+                "Tipe": "B",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.4733135,
+                "Long": 106.8283542
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8283542,
+                    -6.4733135
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 2,
+                "Nama": "RSUD KH. Idham Cholid (sebelumnya RSUD Ciawi)",
+                "Alamat": "Jl. Raya Puncak No.479, Bendungan, Kec. Ciawi, Kabupaten Bogor, Jawa Barat 16720",
+                "Tipe": "B",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.6173511,
+                "Long": 106.7403301
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7403301,
+                    -6.6173511
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 3,
+                "Nama": "RSUD RH. Satibi (sebelumnya RSUD Cileungsi)",
+                "Alamat": "Jl. Raya Cileungsi - Jonggol No.KM. 10, Cipeucang, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820",
+                "Tipe": "B",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.4328904,
+                "Long": 107.0485798
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    107.0485798,
+                    -6.4328904
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 4,
+                "Nama": "RSUD R. Moh. Nuh Nur (sebelumnya RSUD Leuwiliang)",
+                "Alamat": "Jl. Raya Cibeber No.I, Cibeber I, Kec. Leuwiliang, Kabupaten Bogor, Jawa Barat 16640",
+                "Tipe": "C",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.574486,
+                "Long": 106.5576337
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.5576337,
+                    -6.574486
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 5,
+                "Nama": "Eka Hospital Cibubur",
+                "Alamat": "Jalan Raya Kota Wisata Kav. V2, Nagrak, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16967",
+                "Tipe": "B",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.3850255,
+                "Long": 106.9533712
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.9533712,
+                    -6.3850255
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 6,
+                "Nama": "Sentra Medika Hospital Cibinong",
+                "Alamat": "Jl. Raya Mayor Oking Jaya Atmaja No.9, Cibinong, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16911",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.480394,
+                "Long": 106.864693
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.864693,
+                    -6.480394
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 7,
+                "Nama": "RS EMC Sentul",
+                "Alamat": "Sentul City, Jl. MH. Thamrin No.Kav. 57, Citaringgul, Kec. Babakan Madang, Kabupaten Bogor, Jawa Barat 16810",
+                "Tipe": "B",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5782982,
+                "Long": 106.7247988
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7247988,
+                    -6.5782982
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 6,
+                "Nama": "RS Umum Annisa",
+                "Alamat": "Jl. Raya Karanggan No.02, Puspasari, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5672536,
+                "Long": 106.8537562
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8537562,
+                    -6.5672536
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 7,
+                "Nama": "RS Bina Husada",
+                "Alamat": "Jalan Raya Mayor Oking Jaya Atmaja No.KM, RW No.101 1, Ciriung, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16917",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.4732407,
+                "Long": 106.8633401
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8633401,
+                    -6.4732407
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 8,
+                "Nama": "RS Islam Aysha",
+                "Alamat": "Jalan Acropolis Utara, RT.06/RW.18, Karadenan, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16913",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5093019,
+                "Long": 106.80475
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.80475,
+                    -6.5093019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 7,
+                "Nama": "RS Permata Jonggol",
+                "Alamat": "Jl. Raya Jonggol No.1A, Sukamanah, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.4380792,
+                "Long": 107.0535592
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    107.0535592,
+                    -6.4380792
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 8,
+                "Nama": "RS Harapan Sehati",
+                "Alamat": "Jl. Tegar Beriman No.9F, Bojong Baru, Kecamatan Bojonggede, Kabupaten Bogor, Jawa Barat 16920",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.4811048,
+                "Long": 106.8052666
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8052666,
+                    -6.4811048
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 9,
+                "Nama": "RS Sismadi",
+                "Alamat": "Jalan Raya Narogong KM. 20, Rawahingkik, Limusnunggal, Cileungsi, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.3966598,
+                "Long": 106.9706006
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.9706006,
+                    -6.3966598
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 8,
+                "Nama": "RS Sentosa",
+                "Alamat": "Jl. Baru Kemang No.18, Pd. Udik, Kec. Kemang, Kabupaten Bogor, Jawa Barat 16310",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.4950955,
+                "Long": 106.6111418
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.6111418,
+                    -6.4950955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 9,
+                "Nama": "RSUD Kota Bogor",
+                "Alamat": "Jl. DR. Sumeru No.120, RT.03/RW.20, Menteng, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16112",
+                "Tipe": "B",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.5806101,
+                "Long": 106.7778852
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7778852,
+                    -6.5806101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 10,
+                "Nama": "RS Salak",
+                "Alamat": "Jl. Jend. Sudirman No.8, RT.03/RW.07, Sempur, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16121",
+                "Tipe": "B",
+                "Kepemilikan": "TNI AD",
+                "Lat": -6.591646,
+                "Long": 106.797208
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.797208,
+                    -6.591646
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 9,
+                "Nama": "RS Umum PMI Bogor",
+                "Alamat": "Jl. Raya Pajajaran No.80, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153",
+                "Tipe": "B",
+                "Kepemilikan": "Organisasi Sosial",
+                "Lat": -6.5986452,
+                "Long": 106.8052093
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8052093,
+                    -6.5986452
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 10,
+                "Nama": "Mayapada Hospital Bogor (BMC)",
+                "Alamat": "Jl. Pajajaran Indah V No.97, RT.01/RW.11, Baranangsiang, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.6079378,
+                "Long": 106.8110776
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8110776,
+                    -6.6079378
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 11,
+                "Nama": "RS Siloam Hospitals Bogor",
+                "Alamat": "Jl. Raya Pajajaran No.27, RT.01/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5956638,
+                "Long": 106.7959334
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7959334,
+                    -6.5956638
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 10,
+                "Nama": "RS Hermina Bogor",
+                "Alamat": "Jalan Ring Road I Kav. 23, 25, 27, RT.08/RW.08, Curugmekar, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16113",
+                "Tipe": "B",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5574884,
+                "Long": 106.7737942
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7737942,
+                    -6.5574884
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 11,
+                "Nama": "RS Umum Ummi",
+                "Alamat": "Jl. Empang II No.2, Empang, Kec. Bogor Sel., Kota Bogor, Jawa Barat 16132",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.608558,
+                "Long": 106.7946336
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7946336,
+                    -6.608558
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 12,
+                "Nama": "RS Azra",
+                "Alamat": "Jl. Raya Pajajaran No.219, RT.02/RW.11, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5792567,
+                "Long": 106.8074938
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8074938,
+                    -6.5792567
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 11,
+                "Nama": "RS Vania",
+                "Alamat": "Jl. Siliwangi No.11, RT.01/RW.03, Sukasari, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16142",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.6131137,
+                "Long": 106.8078123
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8078123,
+                    -6.6131137
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 12,
+                "Nama": "RS Mulia Pajajaran",
+                "Alamat": "Jl. Raya Pajajaran No.98, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5757867,
+                "Long": 106.8076464
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.8076464,
+                    -6.5757867
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 13,
+                "Nama": "RS Medika Dramaga",
+                "Alamat": "Jl. Raya Dramaga No.KM. 7,3, RT.01/RW.06, Margajaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16680",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5714657,
+                "Long": 106.7395586
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.7395586,
+                    -6.5714657
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 14,
+                "Nama": "RS Ibu dan Anak Bunda Suryatni",
+                "Alamat": "Jl. Sholeh Iskandar No.21, RT.05/RW.04, Cibadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16166",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.5524536,
+                "Long": 106.775349
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.775349,
+                    -6.5524536
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 15,
+                "Nama": "RS Islam Bogor",
+                "Alamat": "Jl. Perdana Raya No.22, Kedungbadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16164",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta/Wakaf",
+                "Lat": -6.5586942,
+                "Long": 106.791586
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.791586,
+                    -6.5586942
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 16,
+                "Nama": "RS Ibu dan Anak Sawojajar",
+                "Alamat": "Jl. Sawojajar No.9, RT.01/RW.04, Pabaton, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16121",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.588467,
+                "Long": 106.793518
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.793518,
+                    -6.588467
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 17,
+                "Nama": "RS Ibu dan Anak Pasutri Bogor",
+                "Alamat": "Jl. Merak No.3, RT.03/RW.06, Tanah Sareal, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16161",
+                "Tipe": "C",
+                "Kepemilikan": "Swasta",
+                "Lat": -6.570604,
+                "Long": 106.798903
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.798903,
+                    -6.570604
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Id": 18,
+                "Nama": "RS Umum Bhayangkara Bogor",
+                "Alamat": "Jl. Kapten Muslihat No.18, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16124",
+                "Tipe": "D",
+                "Kepemilikan": "Pemerintah (Non-Swasta)",
+                "Lat": -6.596275,
+                "Long": 106.791258
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.791258,
+                    -6.596275
+                ]
+            }
+        }
+    ]
+}

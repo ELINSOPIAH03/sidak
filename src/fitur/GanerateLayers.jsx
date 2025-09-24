@@ -16,6 +16,7 @@ export default function GenerateLayers({ map, url, toggle, style, onFeatureClick
                 stroke: new Stroke({ color: "#3399FF", width: 1.5 }),
                 fill: new Fill({ color: "rgba(51,153,255,0.3)" }),
             }),
+            zIndex: 1,
             visible: toggle || false,
         });
 

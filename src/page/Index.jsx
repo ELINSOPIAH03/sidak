@@ -14,7 +14,7 @@ import GeneratePoiLayer from "../fitur/GeneratePoiLayer";
 
 import Popup from "../components/Popup";
 
-export default function Index({ basemapUrl, setBasemapUrl }) {
+export default function Index({ basemapUrl, setBasemapUrl, }) {
     const mapRef = useRef();
     const [map, setMap] = useState(null);
 
@@ -24,7 +24,7 @@ export default function Index({ basemapUrl, setBasemapUrl }) {
         { id: 3, name: "Sekor Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "score" },
         { id: 4, name: "Sekor Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "score" },
         { id: 5, name: "Kantor Damkar", isOn: false, url: "/json/POI_DAMKAR.geojson", type: "poi" },
-        { id: 6, name: "Rumah Sakit", isOn: false, url: "", type: "normal" },
+        { id: 6, name: "Rumah Sakit", isOn: false, url: "/json/POI_RS.geojson", type: "poi" },
         { id: 7, name: "Puskesmas", isOn: false, url: "", type: "normal" },
     ]);
     
@@ -118,12 +118,21 @@ export default function Index({ basemapUrl, setBasemapUrl }) {
                 }
 
                 if (t.type === "poi") {
+                    let iconUrl = "https://maps.google.com/mapfiles/ms/icons/red-dot.png";
+
+                    if (t.name === "Kantor Damkar") {
+                        iconUrl = "https://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+                    } else if (t.name === "Rumah Sakit") {
+                        iconUrl = "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    }
+
                     return (
                         <GeneratePoiLayer
                             key={t.id}
                             map={map}
                             url={t.url}
                             toggle={t.isOn}
+                            iconUrl={iconUrl}
                             onFeatureClick={(props, coord) => {
                                 if (props) {
                                     const content = Object.entries(props).map(([key, value]) => (

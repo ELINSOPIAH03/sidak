@@ -8,4 +8,10 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  define: {
+    CESIUM_BASE_URL: JSON.stringify('/cesium'),
+  },
+  optimizeDeps: {
+    include: ['cesium'],
+  },
 })

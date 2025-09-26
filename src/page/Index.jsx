@@ -14,9 +14,17 @@ import GeneratePoiLayer from "../fitur/GeneratePoiLayer";
 
 import Popup from "../components/Popup";
 
+import * as Cesium from "cesium";
+import "cesium/Build/Cesium/Widgets/widgets.css";
+import CesiumNavigation from "cesium-navigation-es6";
+import OLCesium from "ol-cesium";
+window.Cesium = Cesium;
+
 export default function Index({ basemapUrl, setBasemapUrl, }) {
     const mapRef = useRef();
     const [map, setMap] = useState(null);
+    const [is3D, setIs3D] = useState(false);
+    const ol3dRef = useRef(null);
 
     const [toggles, setToggles] = useState([
         { id: 1, name: "Adminstrasi Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "normal" },
@@ -25,7 +33,7 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
         { id: 4, name: "Sekor Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "score" },
         { id: 5, name: "Kantor Damkar", isOn: false, url: "/json/POI_DAMKAR.geojson", type: "poi" },
         { id: 6, name: "Rumah Sakit", isOn: false, url: "/json/POI_RS.geojson", type: "poi" },
-        { id: 7, name: "Puskesmas", isOn: false, url: "", type: "normal" },
+        // { id: 7, name: "Puskesmas", isOn: false, url: "", type: "normal" },
     ]);
     
     const [popupData, setPopupData] = useState({
@@ -63,12 +71,60 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
         );
     }, [basemapUrl, map]);
 
+    useEffect(() => {
+        if (!map) return;
+
+        if (!ol3dRef.current) {
+            Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmMGZhZmE1YS03ZGFiLTQxMTEtYTc5ZC04NWY4ZjA0YmUzNzciLCJpZCI6MzQ0NzExLCJpYXQiOjE3NTg4NTczMDN9.sNGfEVMtPPSk8kEnrjt-cBOmSiRB6F7GISY0qVPxkJg";
+
+            ol3dRef.current = new OLCesium({
+                map,
+                sceneOptions: { scene3DOnly: true },
+            });
+
+            const scene = ol3dRef.current.getCesiumScene();
+
+            (async () => {
+                // set terrain
+                scene.terrainProvider = await Cesium.CesiumTerrainProvider.fromIonAssetId(1);
+
+                // add tileset 3D (contoh: NYC)
+                const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                scene.primitives.add(tileset);
+
+                // zoom ke tileset
+                scene.camera.flyToBoundingSphere(tileset.boundingSphere);
+            })();
+
+            // enable camera controls
+            const controller = scene.screenSpaceCameraController;
+            controller.enableZoom = true;
+            controller.enableTilt = true;
+            controller.enableRotate = true;
+            controller.enableLook = true;
+            controller.enableCollisionDetection = false;
+
+            scene.globe.depthTestAgainstTerrain = true;
+        }
+
+        ol3dRef.current.setEnabled(is3D);
+
+        if (is3D) {
+            map.getInteractions().forEach(i => i.setActive(false));
+        } else {
+            map.getInteractions().forEach(i => i.setActive(true));
+        }
+    }, [map, is3D]);
+
+
     return (
         <LayoutPages
             basemapUrl={basemapUrl}
             setBasemapUrl={setBasemapUrl}
             toggles={toggles}
-            setToggles={setToggles}>
+            setToggles={setToggles}
+            is3D={is3D}
+            setIs3D={setIs3D}>
             <div
                 ref={mapRef}
                 className="w-full h-[85vh] relative"

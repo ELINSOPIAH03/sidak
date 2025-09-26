@@ -7,10 +7,11 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import SelectBaseMaps from "./SelectBasemaps";
 import SelectLayers from "./SelectLayers";
 import SelectTools from "./SelectTools";
+import ToggleListItem from "./ToggleListItem";
 
 import SidebarImg from "../assets/images/sidebar.png"
 
-export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapUrl, setToggles, toggles }){
+export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapUrl, setToggles, toggles, is3D, setIs3D }) {
     return(
         <aside id="default-sidebar" className={`fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
             } `} aria-label="Sidebar">
@@ -45,15 +46,28 @@ export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapU
                         <SelectTools/>
                     </li>
                     <li>
-                        <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
-                                className="size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-                                <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm6-2.438c0-.724.588-1.312 1.313-1.312h4.874c.725 0 1.313.588 1.313 1.313v4.874c0 .725-.588 1.313-1.313 1.313H9.564a1.312 1.312 0 0 1-1.313-1.313V9.564Z" clipRule="evenodd" />
-                            </svg>
-                            <span className="flex-1 ms-3 whitespace-nowrap">3D Maps</span>
-                        </a>
+                        <ToggleListItem
+                            id="3d-maps"
+                            label="3D Maps"
+                            toggles={{ "3d-maps": is3D }}
+                            setToggles={() => setIs3D((prev) => !prev)}
+                            icon={
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 
+                                            9.75 9.75-4.365 9.75-9.75 
+                                            9.75S2.25 17.385 2.25 12Zm6-2.438c0-.724.588-1.312 
+                                            1.313-1.312h4.874c.725 0 1.313.588 
+                                            1.313 1.313v4.874c0 .725-.588 1.313-1.313 
+                                            1.313H9.564a1.312 1.312 0 0 
+                                            1-1.313-1.313V 9.564Z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            }
+                        />
                     </li>
-                    
                 </ul>
             </div>
         </aside>

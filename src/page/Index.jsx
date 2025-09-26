@@ -13,6 +13,7 @@ import GenerateScoreLayer from "../fitur/GenerateScoreLayer";
 import GeneratePoiLayer from "../fitur/GeneratePoiLayer";
 
 import Popup from "../components/Popup";
+import Search from "../components/Search";
 
 import * as Cesium from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
@@ -116,7 +117,17 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
         }
     }, [map, is3D]);
 
+    const handleSearch = (location) => {
+        if (!map) return;
+        const { lat, lng } = location;
 
+        map.getView().animate({
+            center: fromLonLat([lng, lat]),
+            zoom: 14,
+            duration: 2000,
+        });
+    };
+    
     return (
         <LayoutPages
             basemapUrl={basemapUrl}
@@ -129,6 +140,8 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
                 ref={mapRef}
                 className="w-full h-[85vh] relative"
             >
+            
+            <Search map={map} onSearch={handleSearch} />
 
             <Popup
                 content={popupData.content}

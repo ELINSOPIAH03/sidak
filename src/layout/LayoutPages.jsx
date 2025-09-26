@@ -29,9 +29,9 @@ export default function LayoutPages({ children, basemapUrl, setBasemapUrl, toggl
                     <div className="">
                         {children}
                     </div>
+                    <Footer/>
                 </div>
-
-                <Footer />
+                
             </div>
         </>
     );

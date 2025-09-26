@@ -68,6 +68,43 @@ export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapU
                             }
                         />
                     </li>
+                    <li className="">
+                        <button disabled className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white  group">
+                            <span className="flex-1 whitespace-nowrap">Legend</span>
+                        </button>
+                    </li>
+                    <div className="dark:bg-white bg-gray-900 p-3 rounded-sm">
+                        <ul className="text-sm font-medium ">
+                            <li className="mb-1 flex items-center">   
+                                <span className="inline-block w-10 h-1 bg-[#3399FF] me-2"></span> Batas Kecamatan
+                            </li>
+                            <li className="mb-1 flex items-center">   
+                                <span className="inline-block w-10 h-1 bg-[#000000] me-2"></span> Batas Kecamatan
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <span className="inline-block w-4 h-4 bg-[#FFC971] me-2"></span> Skor 1 - 5    
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <span className="inline-block w-4 h-4 bg-[#FFB627] me-2"></span> Skor 6 - 20    
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <span className="inline-block w-4 h-4 bg-[#FF9505] me-2"></span> Skor 21 - 50    
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <span className="inline-block w-4 h-4 bg-[#E2711D] me-2"></span> Skor 51 - 100    
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <img src="https://maps.google.com/mapfiles/ms/icons/orange-dot.png" alt=""
+                                    className="w-4 h-4 me-2" />
+                                Kantor Damkar    
+                            </li>
+                            <li className="mb-1 flex items-center">
+                                <img src="https://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt=""
+                                    className="w-4 h-4 me-2" />
+                                Rumah Sakit    
+                            </li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </aside>

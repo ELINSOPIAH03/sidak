@@ -64,7 +64,7 @@ export default function SelectLayers({ toggles, setToggles }) {
                                             }`}
                                     />
                                 </button>
-                                <span className="text-sm text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <span className="text-sm text-gray-900 rounded-lg dark:text-white">
                                     {t.name}
                                 </span>
                             </div>

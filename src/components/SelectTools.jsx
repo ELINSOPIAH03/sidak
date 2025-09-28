@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-export default function SelectTools() {
+export default function SelectTools({ onReset }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -36,9 +36,31 @@ export default function SelectTools() {
             </button>
             {isOpen && (
                 <ul className="pl-8 py-2 space-y-2">
-                    <span className="text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        Tanggap Darurat
-                    </span>
+                    <li className="flex items-center space-x-3 p-2 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            className="size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                            <path fillRule="evenodd" d="M17.303 5.197A7.5 7.5 0 0 0 6.697 15.803a.75.75 0 0 1-1.061 1.061A9 9 0 1 1 21 10.5a.75.75 0 0 1-1.5 0c0-1.92-.732-3.839-2.197-5.303Zm-2.121 2.121a4.5 4.5 0 0 0-6.364 6.364.75.75 0 1 1-1.06 1.06A6 6 0 1 1 18 10.5a.75.75 0 0 1-1.5 0c0-1.153-.44-2.303-1.318-3.182Zm-3.634 1.314a.75.75 0 0 1 .82.311l5.228 7.917a.75.75 0 0 1-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 0 1-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 0 1-1.247-.606l.569-9.47a.75.75 0 0 1 .554-.68Z" clipRule="evenodd" />
+                        </svg>
+
+                        <span className="text-gray-900 rounded-lg dark:text-white ">
+                            Tanggap Darurat
+                        </span>
+                    </li>
+                    <li 
+                        onClick={onReset}
+                        className="flex items-center space-x-3 p-2 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor" 
+                            className="size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                            <path fillRule="evenodd" d="M3.22 3.22a.75.75 0 0 1 1.06 0l3.97 3.97V4.5a.75.75 0 0 1 1.5 0V9a.75.75 0 0 1-.75.75H4.5a.75.75 0 0 1 0-1.5h2.69L3.22 4.28a.75.75 0 0 1 0-1.06Zm17.56 0a.75.75 0 0 1 0 1.06l-3.97 3.97h2.69a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75V4.5a.75.75 0 0 1 1.5 0v2.69l3.97-3.97a.75.75 0 0 1 1.06 0ZM3.75 15a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-2.69l-3.97 3.97a.75.75 0 0 1-1.06-1.06l3.97-3.97H4.5a.75.75 0 0 1-.75-.75Zm10.5 0a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-2.69l3.97 3.97a.75.75 0 1 1-1.06 1.06l-3.97-3.97v2.69a.75.75 0 0 1-1.5 0V15Z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-gray-900 rounded-lg dark:text-white ">
+                            Pusatkan
+                        </span>
+                    </li>
                 </ul>
             )}
         </div>

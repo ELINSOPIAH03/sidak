@@ -127,7 +127,20 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
             duration: 2000,
         });
     };
-    
+
+    const initialCenter = fromLonLat([106.71667, -6.58333]);
+    const initialZoom = 10.5;
+
+    const handleReset = () => {
+        if (!map) return;        
+        map.getView().animate({
+            center: initialCenter,
+            zoom: initialZoom,
+            rotation: 0,
+            duration: 1000, 
+        });
+    };
+
     return (
         <LayoutPages
             basemapUrl={basemapUrl}
@@ -135,7 +148,8 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
             toggles={toggles}
             setToggles={setToggles}
             is3D={is3D}
-            setIs3D={setIs3D}>
+            setIs3D={setIs3D}
+            onReset={handleReset}>
             <div
                 ref={mapRef}
                 className="w-full h-[85vh] relative"

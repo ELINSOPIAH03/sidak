@@ -11,7 +11,16 @@ import ToggleListItem from "./ToggleListItem";
 
 import SidebarImg from "../assets/images/sidebar.png"
 
-export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapUrl, setToggles, toggles, is3D, setIs3D }) {
+export default function SidebarPage({ 
+    isOpen, 
+    setIsOpen, 
+    basemapUrl, 
+    setBasemapUrl, 
+    setToggles, 
+    toggles, 
+    is3D, 
+    setIs3D,
+    onReset, }) {
     return(
         <aside id="default-sidebar" className={`fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
             } `} aria-label="Sidebar">
@@ -43,7 +52,7 @@ export default function SidebarPage({ isOpen, setIsOpen, basemapUrl, setBasemapU
                         <SelectLayers toggles={toggles} setToggles={setToggles} />
                     </li>
                     <li>
-                        <SelectTools/>
+                        <SelectTools onReset={onReset} />
                     </li>
                     <li>
                         <ToggleListItem

@@ -11,7 +11,8 @@ import LayoutPages from "../layout/LayoutPages";
 import GenerateLayers from "../fitur/GanerateLayers";
 import GenerateScoreLayer from "../fitur/GenerateScoreLayer";
 import GeneratePoiLayer from "../fitur/GeneratePoiLayer";
-
+import EmergencyPoi from "../fitur/EmergencyPoi";
+import EmergencyPopup from "../components/EmergencyPopup";
 import Popup from "../components/Popup";
 import Search from "../components/Search";
 
@@ -21,11 +22,22 @@ import CesiumNavigation from "cesium-navigation-es6";
 import OLCesium from "ol-cesium";
 window.Cesium = Cesium;
 
-export default function Index({ basemapUrl, setBasemapUrl, }) {
+export default function Index({ basemapUrl, setBasemapUrl}) {
     const mapRef = useRef();
     const [map, setMap] = useState(null);
     const [is3D, setIs3D] = useState(false);
     const ol3dRef = useRef(null);
+
+    const [drawActive, setDrawActive] = useState(false);
+    const [rsList, setRsList] = useState([]);
+    const [damkarList, setDamkarList] = useState([]);
+    const [isEmergencyOn, setIsEmergencyOn] = useState(false);
+
+    
+    const handleEmergency = (state) => {
+        setIsEmergencyOn(state);
+        setDrawActive(state);
+    };
 
     const [toggles, setToggles] = useState([
         { id: 1, name: "Adminstrasi Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "normal" },
@@ -42,6 +54,39 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
         position: [0, 0],
         visible: false,
     });
+
+    const [emergencyPopup, setEmergencyPopup] = useState({
+        content: null,
+        visible: false,
+    });
+
+    useEffect(() => {
+        // fetch RS
+        fetch("/json/POI_RS.geojson")
+            .then((res) => res.json())
+            .then((data) => {
+                setRsList(
+                    data.features.map((f) => ({
+                        name: f.properties.Nama,
+                        alamat: f.properties.Alamat,
+                        coord: f.geometry.coordinates,
+                    }))
+                );
+            });
+
+        // fetch DAMKAR
+        fetch("/json/POI_DAMKAR.geojson")
+            .then((res) => res.json())
+            .then((data) => {
+                setDamkarList(
+                    data.features.map((f) => ({
+                        name: f.properties.name,
+                        alamat: f.properties.alamat,
+                        coord: f.geometry.coordinates,
+                    }))
+                );
+            });
+    }, []);
 
     useEffect(() => {
         const initialMap = new Map({
@@ -141,6 +186,41 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
         });
     };
 
+    const handleEmergencyClick = (data) => {
+        if (!data) {
+            setEmergencyPopup({ content: null, visible: false });
+            return;
+        }
+
+        const { rs, damkar } = data;
+
+        const content = (
+            <div>
+                <h4 className="font-bold mb-2">Lokasi Terdekat</h4>
+                {rs && (
+                    <div className="mb-2">
+                        <p><strong>Rumah Sakit:</strong> {rs.name}</p>
+                        <p>{rs.alamat}</p>
+                        <p>Jarak: {(rs.distance / 1000).toFixed(2)} km</p>
+                    </div>
+                )}
+                {damkar && (
+                    <div>
+                        <p><strong>Damkar:</strong> {damkar.name}</p>
+                        <p>{damkar.alamat}</p>
+                        <p>Jarak: {(damkar.distance / 1000).toFixed(2)} km</p>
+                    </div>
+                )}
+            </div>
+        );
+
+        setEmergencyPopup({
+            content,
+            visible: true,
+        });
+    };
+
+
     return (
         <LayoutPages
             basemapUrl={basemapUrl}
@@ -149,18 +229,34 @@ export default function Index({ basemapUrl, setBasemapUrl, }) {
             setToggles={setToggles}
             is3D={is3D}
             setIs3D={setIs3D}
-            onReset={handleReset}>
+            onReset={handleReset}
+            onEmergency={handleEmergency}
+            isEmergencyOn={isEmergencyOn}>
             <div
                 ref={mapRef}
                 className="w-full h-[85vh] relative"
             >
             
             <Search map={map} onSearch={handleSearch} />
-
+            
+            <EmergencyPoi
+                map={map}
+                active={drawActive}
+                rsList={rsList}
+                damkarList={damkarList}
+                onFeatureClick={handleEmergencyClick}
+            />
+            
             <Popup
                 content={popupData.content}
                 position={popupData.position}
                 visible={popupData.visible}
+            />
+
+            <EmergencyPopup
+                content={emergencyPopup.content}
+                visible={emergencyPopup.visible}
+                onClose={() => setEmergencyPopup({ content: null, visible: false })}
             />
 
             </div>

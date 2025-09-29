@@ -14,9 +14,13 @@ export default function LayoutPages({
     setToggles, 
     is3D, 
     setIs3D,
-    onReset,}) {
+    onReset,
+    onEmergency,
+    isEmergencyOn,
+    setIsEmergencyOn,
+    }) {
     const [isOpen, setIsOpen] = useState(false);
-
+    
     return(
         <>
             <div className="w-full">
@@ -32,6 +36,9 @@ export default function LayoutPages({
                     is3D={is3D}
                     setIs3D={setIs3D}
                     onReset={onReset}
+                    onEmergency={onEmergency}
+                    isEmergencyOn={isEmergencyOn}           
+                    setIsEmergencyOn={setIsEmergencyOn} 
                 />
 
                 <div className={`transition-all duration-300 ${isOpen ? "sm:ml-64" : "ml-0"}`}>

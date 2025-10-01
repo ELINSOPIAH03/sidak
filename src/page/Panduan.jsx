@@ -19,23 +19,23 @@ export default function Panduan() {
                     <li>Layers</li>
                     <p className='font-normal mb-2'>
                         Aplikasi menyediakan beberapa layer, yaitu:
-                        <ul className='list-disc ps-5'>
+                    </p>
+                        <ul className='list-disc ps-5 font-normal'>
                             <li>Batas Administrasi Kabupaten dan Kota Bogor</li>
                             <li>Skor Kejadian Kebakaran</li>
                             <li>Kantor Pemadam Kebakaran (Damkar)</li>
                             <li>Rumah Sakit</li>
                         </ul>
-                    </p>
                     <li>Tools</li>
                     <p className='font-normal mb-2'>
                         Terdapat beberapa alat bantu (tools), antara lain:
-                        <ul className='list-disc ps-5'>
+                    </p>
+                        <ul className='list-disc ps-5 font-normal'>
                             <li>Kejadian</li>
                             <p className="">Fitur ini membantu mencari rumah sakit dan kantor damkar terdekat berdasarkan titik kejadian yang ditentukan.</p>
                             <li>Pusatkan</li>
                             <p className=''>Fitur ini mengembalikan tampilan peta ke posisi awal.</p>
                         </ul>
-                    </p>
                     <li>3D Maps</li>
                     <p className="font-normal mb-2">
                         Fitur ini menampilkan peta dalam mode 3D. Jika tidak berfungsi, kemungkinan API belum diperbarui karena keterbatasan penggunaan API gratis
@@ -44,13 +44,13 @@ export default function Panduan() {
                 <h3 className='text-[18px] md:text-[20px] font-semibold mt-3'>Kontak</h3>
                 <p className="font-normal">
                     Jika ada kritik saran bisa menghubungi:
+                </p>
                     <ul className='list-disc ps-5'>
                         <li>Email: <a href="mailto:elinsopiah526@gmail.com" className='text-blue-600'>elinsopiah526@gmail.com</a></li>
                         <li>Instagram: <a href="https://www.instagram.com/@_.arifaah" target="_blank" rel="noopener noreferrer" className='text-blue-600'>@_.arifaah</a></li>
                         <li>GitHub: <a href="https://github.com/elinsopiah03" className='text-blue-600'>ELINSOPIAH03</a></li>
                         <li>LinkedIn: <a href="https://www.linkedin.com/in/elin-sopiah/" target="_blank" rel="noopener noreferrer" className='text-blue-600'>Elin Sopiah</a></li>
                     </ul>
-                </p>
             </div>
         </LayoutPages>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Sidebar, Button } from "flowbite-react";
 import { Label, Select } from "flowbite-react";
 
@@ -23,6 +24,10 @@ export default function SidebarPage({
     onReset,
     onEmergency,
     isEmergencyOn,}) {
+
+    const location = useLocation();
+    const isPanduanPage = location.pathname === "/panduan";
+
     return(
         <aside id="default-sidebar" className={`fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
             } `} aria-label="Sidebar">
@@ -40,47 +45,65 @@ export default function SidebarPage({
                             alt="sidenar"
                             className="w-full object-contain h-15" />
                     </li>
-                    <li className="flex items-center p-3 text-gray-900 rounded-lg dark:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
-                            className="size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-                            <path fillRule="evenodd" d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z" clipRule="evenodd" />
-                        </svg>
-                        <span className="ms-3">BaseMaps</span>
-                    </li>
-                    <li className="flex items-center ml-10 text-gray-900 rounded-lg dark:text-white">
-                        <SelectBaseMaps value={basemapUrl} onChange={setBasemapUrl} />
-                    </li>
-                    <li>
-                        <SelectLayers toggles={toggles} setToggles={setToggles} />
-                    </li>
-                    <li>
-                        <SelectTools onReset={onReset} onEmergency={onEmergency} isEmergencyOn={isEmergencyOn} />
-                    </li>
-                    <li>
-                        <ToggleListItem
-                            id="3d-maps"
-                            label="3D Maps"
-                            toggles={{ "3d-maps": is3D }}
-                            setToggles={() => setIs3D((prev) => !prev)}
-                            icon={
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 
-                                            9.75 9.75-4.365 9.75-9.75 
-                                            9.75S2.25 17.385 2.25 12Zm6-2.438c0-.724.588-1.312 
-                                            1.313-1.312h4.874c.725 0 1.313.588 
-                                            1.313 1.313v4.874c0 .725-.588 1.313-1.313 
-                                            1.313H9.564a1.312 1.312 0 0 
-                                            1-1.313-1.313V 9.564Z"
-                                        clipRule="evenodd"
-                                    />
+                    {isPanduanPage ? (
+                    <Link
+                        to="/"
+                        className="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >   
+                        <li className="flex items-center w-full text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    className="me-3 size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                                    <path fillRule="evenodd" d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z" clipRule="evenodd" />
                                 </svg>
-                            }
-                        />
-                    </li>
+                                Maps
+                        </li>
+                    </Link>
+                    ) : (
+                        <>
+                            <li className="flex items-center p-3 text-gray-900 rounded-lg dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    className="size-6 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                                    <path fillRule="evenodd" d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z" clipRule="evenodd" />
+                                </svg>
+                                <span className="ms-3">BaseMaps</span>
+                            </li>
+                            <li className="flex items-center ml-10 text-gray-900 rounded-lg dark:text-white">
+                                <SelectBaseMaps value={basemapUrl} onChange={setBasemapUrl} />
+                            </li>
+                            <li>
+                                <SelectLayers toggles={toggles} setToggles={setToggles} />
+                            </li>
+                            <li>
+                                <SelectTools onReset={onReset} onEmergency={onEmergency} isEmergencyOn={isEmergencyOn} />
+                            </li>
+                            <li>
+                                <ToggleListItem
+                                    id="3d-maps"
+                                    label="3D Maps"
+                                    toggles={{ "3d-maps": is3D }}
+                                    setToggles={() => setIs3D((prev) => !prev)}
+                                    icon={
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 
+                                        9.75 9.75-4.365 9.75-9.75 
+                                        9.75S2.25 17.385 2.25 12Zm6-2.438c0-.724.588-1.312 
+                                        1.313-1.312h4.874c.725 0 1.313.588 
+                                        1.313 1.313v4.874c0 .725-.588 1.313-1.313 
+                                        1.313H9.564a1.312 1.312 0 0 
+                                        1-1.313-1.313V 9.564Z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    }
+                                />
+                            </li>
+                        </>
+                    )}
+                    
                     <li>
-                        <a href="/panduan" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <Link to="/panduan" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 viewBox="0 0 24 24" 
                                 fill="currentColor" 
@@ -88,7 +111,7 @@ export default function SidebarPage({
                                 <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clipRule="evenodd" />
                             </svg>
                             <span className="ms-3">Panduan</span>
-                        </a>
+                        </Link>
                     </li>
                     <hr className="my-2 border-gray-200 dark:border-gray-700" />
                     <li className="">

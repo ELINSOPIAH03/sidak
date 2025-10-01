@@ -1,12 +1,26 @@
-# React + Vite
+# SIDAK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application built with **React 19**, **Vite**, **TailwindCSS**, **Flowbite**, and **OpenLayers/Cesium** for interactive map visualization.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/)
+- [Vite](https://vitejs.dev/) (bundler)
+- [TailwindCSS 4](https://tailwindcss.com/) with `@tailwindcss/vite`
+- [Flowbite + Flowbite React](https://flowbite.com/docs/getting-started/react/)
+- [OpenLayers (ol)](https://openlayers.org/) & [OL-Cesium](https://github.com/openlayers/ol-cesium)  
+- [CesiumJS](https://cesium.com/cesiumjs/) with [cesium-navigation-es6](https://www.npmjs.com/package/cesium-navigation-es6)
+- [React Router DOM 7](https://reactrouter.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Installation
+
+Clone repository, then install dependencies:
+
+```bash
+git clone <your-repo-url> sidak
+cd sidak
+npm install

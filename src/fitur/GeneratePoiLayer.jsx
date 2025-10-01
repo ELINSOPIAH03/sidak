@@ -6,7 +6,7 @@ import { Style, Icon } from "ol/style";
 
 // import markerIcon from "../assets/icons/marker.svg";
 
-export default function GeneratePoiLayer({ map, url, iconUrl, toggle, onFeatureClick }) {
+export default function GeneratePoiLayer({ map, url, iconUrl, toggle, onFeatureClick, poiLayers }) {
     useEffect(() => {
         if (!map) return;
 
@@ -27,47 +27,55 @@ export default function GeneratePoiLayer({ map, url, iconUrl, toggle, onFeatureC
             visible: toggle || false,
         });
 
+        poiLayers.current.push(layer);
+
         map.addLayer(layer);
 
         const handleClick = (evt) => {
             let found = false;
-            map.forEachFeatureAtPixel(evt.pixel, (feature, l) => {
-                if (feature && l === layer) {
-                    const props = { ...feature.getProperties() };
-                    delete props.geometry;
+            poiLayers.current.forEach((l) => {
+                map.forEachFeatureAtPixel(
+                    evt.pixel,
+                    (feature, layerFound) => {
+                        if (feature && layerFound === l) {
+                            const props = { ...feature.getProperties() };
+                            delete props.geometry;
 
-                    let filteredProps = {};
+                            let filteredProps = {};
 
-                    if (url.includes("POI_RS")) {
-                        filteredProps = {
-                            Nama: props.Nama || "-",
-                            Alamat: props.Alamat || "-",
-                            Tipe: props.Tipe || "-",
-                            Kepemilikan: props.Kepemilikan || "-",
-                        };
-                    } else if (url.includes("POI_DAMKAR")) {
-                        filteredProps = {
-                            Nama: props.name || "-",
-                            Alamat: props.alamat || "-",
-                        };
-                    }
+                            if (l.getSource().getUrl().includes("POI_RS")) {
+                                filteredProps = {
+                                    Nama: props.Nama || "-",
+                                    Alamat: props.Alamat || "-",
+                                    Tipe: props.Tipe || "-",
+                                    Kepemilikan: props.Kepemilikan || "-",
+                                };
+                            } else if (l.getSource().getUrl().includes("POI_DAMKAR")) {
+                                filteredProps = {
+                                    Nama: props.name || "-",
+                                    Alamat: props.alamat || "-",
+                                };
+                            }
 
-                    onFeatureClick && onFeatureClick(filteredProps, evt.pixel);
-                    found = true;
-                }
+                            onFeatureClick && onFeatureClick(filteredProps, evt.pixel);
+                            found = true;
+                        }
+                    },
+                    { hitTolerance: 15 }
+                );
             });
-            if (!found) {
-                onFeatureClick && onFeatureClick(null, null);
-            }
+
+            if (!found) onFeatureClick && onFeatureClick(null, null);
         };
 
         map.on("singleclick", handleClick);
 
         return () => {
             map.removeLayer(layer);
+            poiLayers.current = poiLayers.current.filter(l => l !== layer);
             map.un("singleclick", handleClick);
         };
-    }, [map, url]);
+    }, [map, url, toggle]);
 
     useEffect(() => {
         if (!map) return;

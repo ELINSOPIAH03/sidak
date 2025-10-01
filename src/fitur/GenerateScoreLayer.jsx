@@ -4,7 +4,7 @@ import GeoJSON from "ol/format/GeoJSON";
 import { Style, Fill, Stroke, Text } from "ol/style";
 import { useEffect } from "react";
 
-export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick }) {
+export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick, poiLayers }) {
     useEffect(() => {
         if (!map || !toggle) return;
 
@@ -22,20 +22,14 @@ export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick })
             return "#FFC97105";
         };
 
-
         const vectorLayer = new VectorLayer({
             source: vectorSource,
             style: (feature) => {
                 const score = feature.get("SEKOR") || 0;
                 const zoom = map.getView().getZoom();
                 return new Style({
-                    fill: new Fill({
-                        color: getColorByScore(score),
-                    }),
-                    stroke: new Stroke({
-                        color: "#FF6600",
-                        width: 2,
-                    }),
+                    fill: new Fill({ color: getColorByScore(score) }),
+                    stroke: new Stroke({ color: "#FF6600", width: 2 }),
                     text: zoom >= 10.5 ? new Text({
                         text: score.toString(),
                         font: "100 12px Arial",
@@ -49,25 +43,42 @@ export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick })
         map.addLayer(vectorLayer);
 
         const handleClick = (evt) => {
-            let found = false;
-            map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
-                if (feature && layer === layer) {
-                    const props = { ...feature.getProperties() };
-                    delete props.geometry;
-                    delete props.LCODE;
-                    delete props.SHAPE_Leng;
-                    delete props.SHAPE_Area;
+            let poiClicked = false;
+            poiLayers.current.forEach((poiLayer) => {
+                if (!poiLayer.getVisible()) return;
 
-                    onFeatureClick && onFeatureClick(props, evt.pixel);
-                    found = true;
-                }
+                map.forEachFeatureAtPixel(
+                    evt.pixel,
+                    (feature, layerFound) => {
+                        if (feature && layerFound === poiLayer) {
+                            poiClicked = true;
+                        }
+                    },
+                    { hitTolerance: 10 }
+                );
             });
 
-            if (!found) {
-                onFeatureClick && onFeatureClick(null, null);
+            if (poiClicked) {
+                return;
             }
+
+            map.forEachFeatureAtPixel(
+                evt.pixel,
+                (feature, layerFound) => {
+                    if (feature && layerFound === vectorLayer) {
+                        const props = { ...feature.getProperties() };
+                        delete props.geometry;
+                        delete props.LCODE;
+                        delete props.SHAPE_Leng;
+                        delete props.SHAPE_Area;
+
+                        onFeatureClick && onFeatureClick(props, evt.pixel);
+                    }
+                },
+                { hitTolerance: 5 }
+            );
         };
-        
+
         map.on("singleclick", handleClick);
 
         const onZoom = () => vectorLayer.setStyle(vectorLayer.getStyle());
@@ -78,7 +89,7 @@ export default function GenerateScoreLayer({ map, url, toggle, onFeatureClick })
             map.un("singleclick", handleClick);
             map.removeLayer(vectorLayer);
         };
-    }, [map, toggle, url, onFeatureClick]);
+    }, [map, toggle, url, onFeatureClick, poiLayers]);
 
     return null;
 }

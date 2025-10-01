@@ -33,6 +33,8 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
     const [damkarList, setDamkarList] = useState([]);
     const [isEmergencyOn, setIsEmergencyOn] = useState(false);
 
+    const poiLayers = useRef([]); 
+
     
     const handleEmergency = (state) => {
         setIsEmergencyOn(state);
@@ -292,6 +294,7 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
                                     });
                                 }
                             }}
+                            poiLayers={poiLayers} 
                         />;
                 }
 
@@ -323,6 +326,7 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
                                     setPopupData({ content: null, position: [0, 0], visible: false });
                                 }
                             }}
+                            poiLayers={poiLayers} 
                         />
                     );
                 }
@@ -355,6 +359,7 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
                                 });
                             }
                         }}
+                        poiLayers={poiLayers} 
                     />;
             })}
 

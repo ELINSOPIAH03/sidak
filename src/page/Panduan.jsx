@@ -40,6 +40,9 @@ export default function Panduan() {
                     <p className="font-normal mb-2">
                         Fitur ini menampilkan peta dalam mode 3D. Jika tidak berfungsi, kemungkinan API belum diperbarui karena keterbatasan penggunaan API gratis
                     </p>
+                    <p className="font-normal mb-2">
+                        Cara menggunkanan 3D Maps ini dengang menggunakan scroll mouse untuk zoom in dan zoom out, kemudian klik kiri dan tahan untuk menggeser posisi peta, serta klik kiri + alt  dan tahan untuk mengubah sudut pandang peta.
+                    </p>
                 </ol>
                 <h3 className='text-[18px] md:text-[20px] font-semibold mt-3'>Kontak</h3>
                 <p className="font-normal">

@@ -1,31 +1,48 @@
-import React, { useEffect } from "react";
-import VectorLayer from "ol/layer/Vector";
+import { Vector as VectorLayer } from "ol/layer";
 import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON";
-import { Style, Stroke, Fill } from "ol/style";
-export default function GenerateLayers({ map, url, toggle, style, onFeatureClick }) {
-    useEffect(() => {
-        if (!map) return;
+import { Style, Fill, Stroke } from "ol/style";
+import { useEffect } from "react";
 
-        const layer = new VectorLayer({
-            source: new VectorSource({
-                url,
-                format: new GeoJSON(),
-            }),
+export default function GenerateLayers({ map, url, toggle, style, onFeatureClick, poiLayers }) {
+    useEffect(() => {
+        if (!map || !toggle) return;
+
+        const vectorSource = new VectorSource({
+            url,
+            format: new GeoJSON(),
+        });
+
+        const vectorLayer = new VectorLayer({
+            source: vectorSource,
             style: style || new Style({
                 stroke: new Stroke({ color: "#3399FF", width: 1.5 }),
                 fill: new Fill({ color: "rgba(51,153,255,0.3)" }),
             }),
             zIndex: 1,
-            visible: toggle || false,
         });
 
-        map.addLayer(layer);
+        map.addLayer(vectorLayer);
 
         const handleClick = (evt) => {
-            let found = false;
-            map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
-                if (feature && layer === layer) {
+            let poiClicked = false;
+
+            // Cek dulu POI layer kalau ada
+            poiLayers?.current.forEach((poiLayer) => {
+                if (!poiLayer.getVisible()) return;
+
+                map.forEachFeatureAtPixel(evt.pixel, (feature, layerFound) => {
+                    if (feature && layerFound === poiLayer) {
+                        poiClicked = true;
+                    }
+                }, { hitTolerance: 10 });
+            });
+
+            if (poiClicked) return;
+
+            // Handle klik layer ini
+            map.forEachFeatureAtPixel(evt.pixel, (feature, layerFound) => {
+                if (feature && layerFound === vectorLayer) {
                     const props = { ...feature.getProperties() };
                     delete props.geometry;
                     delete props.LCODE;
@@ -33,29 +50,22 @@ export default function GenerateLayers({ map, url, toggle, style, onFeatureClick
                     delete props.SHAPE_Area;
 
                     onFeatureClick && onFeatureClick(props, evt.pixel);
-                    found = true;
                 }
-            });
-
-            if (!found) {
-                onFeatureClick && onFeatureClick(null, null);
-            }
+            }, { hitTolerance: 5 });
         };
 
         map.on("singleclick", handleClick);
 
-        return () => {
-            map.removeLayer(layer);
-            map.un("singleclick", handleClick);
-        };
-    }, [map, url]);
+        // Update style saat zoom
+        const onZoom = () => vectorLayer.setStyle(vectorLayer.getStyle());
+        map.getView().on("change:resolution", onZoom);
 
-    useEffect(() => {
-        if (!map) return;
-        const layers = map.getLayers().getArray();
-        const thisLayer = layers.find(l => l.getSource()?.getUrl?.() === url);
-        if (thisLayer) thisLayer.setVisible(toggle);
-    }, [toggle, map, url]);
+        return () => {
+            map.getView().un("change:resolution", onZoom);
+            map.un("singleclick", handleClick);
+            map.removeLayer(vectorLayer);
+        };
+    }, [map, toggle, url, style, onFeatureClick, poiLayers]);
 
     return null;
 }

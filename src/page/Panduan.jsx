@@ -32,7 +32,7 @@ export default function Panduan() {
                     </p>
                         <ul className='list-disc ps-5 font-normal'>
                             <li>Kejadian</li>
-                            <p className="">Fitur ini membantu mencari rumah sakit dan kantor damkar terdekat berdasarkan titik kejadian yang ditentukan.</p>
+                            <p className="">Fitur ini membantu mencari rumah sakit dan kantor damkar terdekat berdasarkan titik kejadian yang ditentukan. Dan hanya merekomendasikan dalam kota dan kabupaten</p>
                             <li>Pusatkan</li>
                             <p className=''>Fitur ini mengembalikan tampilan peta ke posisi awal.</p>
                         </ul>
@@ -47,7 +47,7 @@ export default function Panduan() {
                 </p>
                     <ul className='list-disc ps-5'>
                         <li>Email: <a href="mailto:elinsopiah526@gmail.com" className='text-blue-600'>elinsopiah526@gmail.com</a></li>
-                        <li>Instagram: <a href="https://www.instagram.com/@_.arifaah" target="_blank" rel="noopener noreferrer" className='text-blue-600'>@_.arifaah</a></li>
+                        <li>Instagram: <a href="https://www.instagram.com/_.arifaah/" target="_blank" rel="noopener noreferrer" className='text-blue-600'>@_.arifaah</a></li>
                         <li>GitHub: <a href="https://github.com/elinsopiah03" className='text-blue-600'>ELINSOPIAH03</a></li>
                         <li>LinkedIn: <a href="https://www.linkedin.com/in/elin-sopiah/" target="_blank" rel="noopener noreferrer" className='text-blue-600'>Elin Sopiah</a></li>
                     </ul>

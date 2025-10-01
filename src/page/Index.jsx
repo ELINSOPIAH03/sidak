@@ -40,7 +40,7 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
     };
 
     const [toggles, setToggles] = useState([
-        { id: 1, name: "Adminstrasi Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "normal" },
+        { id: 1, name: "Adminstrasi Kab", isOn: false, url: "/json/ADM_KAB.geojson", type: "normal" },
         { id: 2, name: "Administrasi Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "normal" },
         { id: 3, name: "Sekor Kabupaten", isOn: false, url: "/json/ADM_KAB.geojson", type: "score" },
         { id: 4, name: "Sekor Kota", isOn: false, url: "/json/ADM_KOTA.geojson", type: "score" },

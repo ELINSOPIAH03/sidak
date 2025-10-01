@@ -37,11 +37,11 @@ export default function SelectBaseMaps({ value, onChange }) {
             title: "OSMHumantarian",
             url: "https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
         },
-        {
-            name: "Stamen",
-            title: "StamenTerrain",
-            url: "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
-        },
+        // {
+        //     name: "Stamen",
+        //     title: "StamenTerrain",
+        //     url: "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+        // },
         {
             name: "Toner",
             title: "MTToner",

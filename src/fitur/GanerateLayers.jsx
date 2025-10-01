@@ -27,7 +27,6 @@ export default function GenerateLayers({ map, url, toggle, style, onFeatureClick
         const handleClick = (evt) => {
             let poiClicked = false;
 
-            // Cek dulu POI layer kalau ada
             poiLayers?.current.forEach((poiLayer) => {
                 if (!poiLayer.getVisible()) return;
 
@@ -40,7 +39,6 @@ export default function GenerateLayers({ map, url, toggle, style, onFeatureClick
 
             if (poiClicked) return;
 
-            // Handle klik layer ini
             map.forEachFeatureAtPixel(evt.pixel, (feature, layerFound) => {
                 if (feature && layerFound === vectorLayer) {
                     const props = { ...feature.getProperties() };
@@ -56,7 +54,6 @@ export default function GenerateLayers({ map, url, toggle, style, onFeatureClick
 
         map.on("singleclick", handleClick);
 
-        // Update style saat zoom
         const onZoom = () => vectorLayer.setStyle(vectorLayer.getStyle());
         map.getView().on("change:resolution", onZoom);
 

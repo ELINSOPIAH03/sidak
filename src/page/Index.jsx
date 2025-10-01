@@ -253,6 +253,7 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
                 content={popupData.content}
                 position={popupData.position}
                 visible={popupData.visible}
+                onClose={() => setPopupData({ ...popupData, visible: false })}
             />
 
             <EmergencyPopup

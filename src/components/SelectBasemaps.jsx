@@ -37,6 +37,7 @@ export default function SelectBaseMaps({ value, onChange }) {
             title: "OSMHumantarian",
             url: "https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
         },
+        
         // {
         //     name: "Stamen",
         //     title: "StamenTerrain",

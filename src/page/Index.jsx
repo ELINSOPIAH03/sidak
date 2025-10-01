@@ -285,7 +285,6 @@ export default function Index({ basemapUrl, setBasemapUrl}) {
                                         visible: true,
                                     });
                                 } else {
-                                    // klik di luar shape
                                     setPopupData({
                                         content: null,
                                         position: [0, 0],

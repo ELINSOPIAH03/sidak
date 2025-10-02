@@ -29,7 +29,7 @@ export default function SidebarPage({
     const isPanduanPage = location.pathname === "/panduan";
 
     return(
-        <aside id="default-sidebar" className={`fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+        <aside id="default-sidebar" className={`z-[1000] fixed top-0 left-0 h-screen w-64 transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
             } `} aria-label="Sidebar">
             <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <button
